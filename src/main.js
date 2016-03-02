@@ -16,10 +16,12 @@ angular.module('mdDatetime', [])
 
     let processClockNumber = (size) => {
       return (value, index) => {
+        let deg = index * 30 + 30;
+
         return {
           value,
           style: {
-            transform: `rotate(${index * 30 + 30}deg) translate(0, -${size}px) rotate(-${index * 30 + 30}deg)`
+            transform: `rotate(${deg}deg) translate(0, -${size}px) rotate(-${deg}deg)`
           }
         };
       };
