@@ -36,6 +36,20 @@ angular.module('mdDatetime', [])
     this.ampm = this.mode == 'ampm';
 
     if (this.ampm) { this.innerHours = []; }
+
+    this.selectHour = (hour) => {
+      this.modelCtrl.$setViewValue({
+        hour: hour.realValue,
+        minute: this.modelCtrl.$modelValue.minute
+      });
+    };
+
+    this.selectMinute = (minute) => {
+      this.modelCtrl.$setViewValue({
+        hour: this.modelCtrl.$modelValue.hour,
+        minute: minute.realValue
+      });
+    };
   },
   controllerAs: 'T'
 })
@@ -45,7 +59,7 @@ angular.module('mdDatetime', [])
   controller() {
     this.datetime = moment(this.at);
 
-    this.updateDate = function() {
+    this.updateDate = () => {
       let newDate = moment(this.params.date);
 
       this.datetime.year(newDate.year());
@@ -53,7 +67,12 @@ angular.module('mdDatetime', [])
       this.datetime.date(newDate.date());
     };
 
-    this.update = function() {
+    this.updateTime = () => {
+      this.datetime.hour(this.params.time.hour);
+      this.datetime.minute(this.params.time.minute);
+    };
+
+    this.updateParams = function() {
       this.params = {
         date: this.datetime.toDate(),
         time: {
@@ -63,7 +82,7 @@ angular.module('mdDatetime', [])
       };
     };
 
-    this.update();
+    this.updateParams();
   },
   controllerAs: 'DT'
 });
