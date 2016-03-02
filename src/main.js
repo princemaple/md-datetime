@@ -6,8 +6,10 @@ angular.module('mdDatetime', [])
     modelCtrl: 'ngModel'
   },
   controller() {
-    this.$onInit = function() {
-      console.log(this);
+    this.$onInit = () => {
+      this.modelCtrl.$render = () => {
+        this.display = moment(this.modelCtrl.$modelValue).format('HH:mm');
+      };
     };
 
     this.outerHours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -65,11 +67,15 @@ angular.module('mdDatetime', [])
       this.datetime.year(newDate.year());
       this.datetime.month(newDate.month());
       this.datetime.date(newDate.date());
+
+      this.updateParams();
     };
 
     this.updateTime = () => {
       this.datetime.hour(this.params.time.hour);
       this.datetime.minute(this.params.time.minute);
+
+      this.updateParams();
     };
 
     this.updateParams = function() {
