@@ -1,0 +1,4 @@
+<md-datepicker ng-model="DT.params.date" ng-change="DT.updateDate()"></md-datepicker>
+<md-timepicker ng-model="DT.params.time" ng-change="DT.updateTime()" mode="24h"></md-timepicker>
+<br />
+{{DT.datetime.format()}}

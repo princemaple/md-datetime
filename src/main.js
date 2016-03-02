@@ -1,6 +1,6 @@
 angular.module('mdDatetime', [])
 .component('mdTimepicker', {
-  template: require('html!./template.html'),
+  template: require('html!./md-timepicker.html'),
   bindings: { mode: '@' },
   require: {
     modelCtrl: 'ngModel'
@@ -41,12 +41,7 @@ angular.module('mdDatetime', [])
 })
 .component('mdDatetime', {
   bindings: { at: '=' },
-  template: `
-    <md-datepicker ng-model="DT.params.date" ng-change="DT.updateDate()"></md-datepicker>
-    <md-timepicker ng-model="DT.params.time" ng-change="DT.updateTime()" mode="24h"></md-timepicker>
-    <br />
-    {{DT.datetime.format()}}
-  `,
+  template: require('html!./md-datetime.html'),
   controller() {
     this.datetime = moment(this.at);
 
