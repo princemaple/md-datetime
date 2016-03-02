@@ -1,0 +1,25 @@
+.md-timepicker {
+  background: red;
+}
+
+.md-timepicker-clock {
+  position: relative;
+  background-color: #eee;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.md-timepicker-clock-hour,
+.md-timepicker-clock-minute,
+.md-timepicker-hour-number,
+.md-timepicker-minute-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.md-timepicker-hour-number,
+.md-timepicker-minute-number {
+  transform: translate(-50%, -50%);
+}
