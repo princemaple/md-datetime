@@ -14,12 +14,14 @@ angular.module('mdDatetime', [])
     this.innerHours = ['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '00'];
     this.minutes = ['05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '00'];
 
-    let processClockNumber = (size) => {
-      return (value, index) => {
+    let processClockNumber = (type, size) => {
+      return (viewValue, index) => {
         let deg = index * 30 + 30;
 
         return {
-          value,
+          type,
+          viewValue,
+          realValue: parseInt(viewValue, 10),
           style: {
             transform: `rotate(${deg}deg) translate(0, -${size}px) rotate(-${deg}deg)`
           }
@@ -27,9 +29,9 @@ angular.module('mdDatetime', [])
       };
     };
 
-    this.outerHours = this.outerHours.map(processClockNumber(80));
-    this.innerHours = this.innerHours.map(processClockNumber(55));
-    this.minutes = this.minutes.map(processClockNumber(80));
+    this.outerHours = this.outerHours.map(processClockNumber('hour', 80));
+    this.innerHours = this.innerHours.map(processClockNumber('hour', 55));
+    this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
     this.ampm = this.mode == 'ampm';
 
