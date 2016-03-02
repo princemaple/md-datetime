@@ -22,6 +22,11 @@
     "url": "https://github.com/princemaple/md-datetime/issues"
   },
   "homepage": "https://github.com/princemaple/md-datetime#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-material": "1.x",
+    "moment": "^2.11.2"
+  },
   "devDependencies": {
     "babel-core": "^6.6.0",
     "babel-loader": "^6.2.4",
@@ -30,9 +35,5 @@
     "eslint-loader": "^1.3.0",
     "ng-annotate-loader": "^0.1.0",
     "webpack": "^1.12.14"
-  },
-  "peerDependencies": {
-    "angular": "1.x",
-    "angular-material": "1.x"
   }
 }
