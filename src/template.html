@@ -1,0 +1,30 @@
+<button class="md-icon-button md-button md-ink-ripple" type="button">
+  <md-icon>
+    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+    </svg>
+  </md-icon>
+</button>
+<div class="md-timepicker">
+  <div class="md-timepicker-ampm" ng-if="T.ampm">
+    am/pm
+  </div>
+  <div class="md-timepicker-clock md-timepicker-hours">
+    <div class="md-timepicker-clock-outer-hour md-timepicker-clock-hour"
+        ng-repeat="hour in T.outerHours" ng-style="hour.style">
+      <span class="md-timepicker-hour-number">{{::hour.value}}</span>
+    </div>
+    <div class="md-timepicker-clock-inner-hour md-timepicker-clock-hour"
+        ng-repeat="hour in T.innerHours" ng-style="hour.style">
+      <span class="md-timepicker-hour-number">{{::hour.value}}</span>
+    </div>
+  </div>
+  <div class="md-timepicker-clock md-timepicker-minutes">
+    <div class="md-timepicker-clock-minute"
+        ng-repeat="minute in T.minutes" ng-style="minute.style">
+      <span class="md-timepicker-minute-number">{{::minute.value}}</span>
+    </div>
+  </div>
+</div>
