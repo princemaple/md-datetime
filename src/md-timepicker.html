@@ -13,17 +13,17 @@
     am/pm
   </div>
   <div class="md-timepicker-clock md-timepicker-hours">
-    <div class="md-timepicker-clock-outer-hour md-timepicker-clock-hour"
+    <div class="md-timepicker-clock-outer-hour md-timepicker-clock-hour" ng-class="{ selected: hour.selected }"
         ng-repeat="hour in T.outerHours" ng-style="hour.style" ng-click="T.selectHour(hour)">
       <span class="md-timepicker-hour-number">{{::hour.viewValue}}</span>
     </div>
-    <div class="md-timepicker-clock-inner-hour md-timepicker-clock-hour"
+    <div class="md-timepicker-clock-inner-hour md-timepicker-clock-hour" ng-class="{ selected: hour.selected }"
         ng-repeat="hour in T.innerHours" ng-style="hour.style" ng-click="T.selectHour(hour)">
       <span class="md-timepicker-hour-number">{{::hour.viewValue}}</span>
     </div>
   </div>
   <div class="md-timepicker-clock md-timepicker-minutes">
-    <div class="md-timepicker-clock-minute"
+    <div class="md-timepicker-clock-minute" ng-class="{ selected: minute.selected }"
         ng-repeat="minute in T.minutes" ng-style="minute.style" ng-click="T.selectMinute(minute)">
       <span class="md-timepicker-minute-number">{{::minute.viewValue}}</span>
     </div>

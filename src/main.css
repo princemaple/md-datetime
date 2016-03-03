@@ -28,6 +28,7 @@
 .md-timepicker-minute-number {
   transform: translate(-50%, -50%);
 
+  .selected > &::after,
   &:hover::after {
     content: "";
     position: absolute;
@@ -37,5 +38,9 @@
     border: 14px solid #ddd;
     border-radius: 50%;
     z-index: -1;
+  }
+
+  .selected > &::after {
+    border: 14px solid #aaa;
   }
 }

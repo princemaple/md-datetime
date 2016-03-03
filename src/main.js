@@ -9,6 +9,11 @@ angular.module('mdDatetime', [])
     this.$onInit = () => {
       this.modelCtrl.$render = () => {
         this.display = moment(this.modelCtrl.$modelValue).format('HH:mm');
+
+        let { hour, minute } = this.modelCtrl.$modelValue;
+
+        this.hours.forEach(h => { h.selected = h.realValue == hour; });
+        this.minutes.forEach(m => { m.selected = Math.abs(m.realValue - minute) <= 2.5; });
       };
     };
 
@@ -33,17 +38,22 @@ angular.module('mdDatetime', [])
 
     this.outerHours = this.outerHours.map(processClockNumber('hour', 80));
     this.innerHours = this.innerHours.map(processClockNumber('hour', 55));
-    this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
     this.ampm = this.mode == 'ampm';
-
     if (this.ampm) { this.innerHours = []; }
+
+    this.hours = this.outerHours.concat(this.innerHours);
+    this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
     this.selectHour = (hour) => {
       this.modelCtrl.$setViewValue({
         hour: hour.realValue,
         minute: this.modelCtrl.$modelValue.minute
       });
+
+      this.outerHours.forEach(h => { h.selected = false; });
+      this.innerHours.forEach(h => { h.selected = false; });
+      hour.selected = true;
     };
 
     this.selectMinute = (minute) => {
@@ -51,6 +61,9 @@ angular.module('mdDatetime', [])
         hour: this.modelCtrl.$modelValue.hour,
         minute: minute.realValue
       });
+
+      this.minutes.forEach(m => { m.selected = false; });
+      minute.selected = true;
     };
   },
   controllerAs: 'T'
