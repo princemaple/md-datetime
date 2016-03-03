@@ -1,5 +1,6 @@
 .md-timepicker {
   background: red;
+  width: 240px;
 }
 
 .md-timepicker-clock {
@@ -8,6 +9,14 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+
+.md-timepicker-time {
+  text-align: center;
+}
+
+.md-timepicker-clock {
+  margin: auto;
 }
 
 .md-timepicker-clock-hour,
