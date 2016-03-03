@@ -1,22 +1,20 @@
 .md-timepicker {
-  background: red;
+  background: #eee;
   width: 240px;
+  overflow: hidden;
 }
 
 .md-timepicker-clock {
   position: relative;
-  background-color: #eee;
+  background-color: #ddd;
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  margin: 12px auto;
 }
 
 .md-timepicker-time {
   text-align: center;
-}
-
-.md-timepicker-clock {
-  margin: auto;
 }
 
 .md-timepicker-clock-hour,
@@ -44,7 +42,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 14px solid #ddd;
+    border: 14px solid #ccc;
     border-radius: 50%;
     z-index: -1;
   }
