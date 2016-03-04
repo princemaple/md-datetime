@@ -45,6 +45,14 @@ angular.module('mdDatetime', ['ngMaterial'])
     this.hours = this.outerHours.concat(this.innerHours);
     this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
+    this.pick = () => {
+      if (this.picking) { return this.picking = false; }
+
+      this.pickingMinute = false;
+      this.pickingHour = true;
+      this.picking = true;
+    };
+
     this.selectHour = (hour) => {
       this.modelCtrl.$setViewValue({
         hour: hour.realValue,
@@ -54,6 +62,9 @@ angular.module('mdDatetime', ['ngMaterial'])
       this.outerHours.forEach(h => { h.selected = false; });
       this.innerHours.forEach(h => { h.selected = false; });
       hour.selected = true;
+
+      this.pickingHour = false;
+      this.pickingMinute = true;
     };
 
     this.selectMinute = (minute) => {
@@ -64,6 +75,8 @@ angular.module('mdDatetime', ['ngMaterial'])
 
       this.minutes.forEach(m => { m.selected = false; });
       minute.selected = true;
+
+      this.picking = false;
     };
   },
   controllerAs: 'T'
