@@ -1,4 +1,16 @@
-.md-timepicker {
+.md-timepicker-widget {
+  position: relative;
+  display: inline;
+}
+
+.md-timepicker-display {
+  vertical-align: middle;
+}
+
+.md-timepicker-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
   background: #eee;
   width: 240px;
   overflow: hidden;

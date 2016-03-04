@@ -1,4 +1,4 @@
-angular.module('mdDatetime', [])
+angular.module('mdDatetime', ['ngMaterial'])
 .component('mdTimepicker', {
   template: require('html!./md-timepicker.html'),
   bindings: { mode: '@' },
