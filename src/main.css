@@ -15,6 +15,19 @@
   background: #eee;
   width: 240px;
   overflow: hidden;
+  z-index: 99;
+
+  &.ng-enter {
+    transition: transform 0.1s ease-out;
+  }
+
+  &.ng-enter {
+    transform: translate(-50%, -50%) scale(0.8) translate(50%, 50%);
+  }
+
+  &.ng-enter-active {
+    transform: scale(1);
+  }
 }
 
 .md-timepicker-clock {
