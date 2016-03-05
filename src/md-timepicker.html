@@ -1,5 +1,5 @@
 <md-button class="md-timepicker-button md-icon-button md-ink-ripple" type="button" aria-label="pick time"
-    ng-click="T.pick()" ng-class="{ active: T.picking }">
+    ng-click="T.pick($event)" ng-class="{ active: T.picking }">
   <md-icon>
     <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
@@ -8,7 +8,7 @@
     </svg>
   </md-icon>
 </md-button>
-<div class="md-timepicker-widget">
+<div class="md-timepicker-widget" ng-click="T.keepPicking($event)">
   <span class="md-timepicker-display">{{T.display}}</span>
   <div class="md-timepicker-popup" md-whiteframe="2" ng-if="T.picking">
     <md-toolbar><h1 class="md-timepicker-time">{{T.display}}</h1></md-toolbar>

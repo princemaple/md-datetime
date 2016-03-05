@@ -1,6 +1,7 @@
 .md-timepicker-widget {
   position: relative;
   display: inline;
+  outline: none;
 }
 
 .md-timepicker-display {

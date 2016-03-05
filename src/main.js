@@ -5,7 +5,7 @@ angular.module('mdDatetime', ['ngMaterial'])
   require: {
     modelCtrl: 'ngModel'
   },
-  controller() {
+  controller($scope, $window) {
     this.$onInit = () => {
       this.modelCtrl.$render = () => {
         this.display = moment(this.modelCtrl.$modelValue).format('HH:mm');
@@ -15,7 +15,14 @@ angular.module('mdDatetime', ['ngMaterial'])
         this.hours.forEach(h => { h.selected = h.realValue == hour; });
         this.minutes.forEach(m => { m.selected = Math.abs(m.realValue - minute) <= 2.5; });
       };
+
+      angular.element($window).on('click', () => {
+        this.picking = false;
+        $scope.$digest();
+      });
     };
+
+    this.keepPicking = (event) => { event.stopPropagation(); };
 
     this.outerHours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
     this.innerHours = ['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '00'];
@@ -45,12 +52,14 @@ angular.module('mdDatetime', ['ngMaterial'])
     this.hours = this.outerHours.concat(this.innerHours);
     this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
-    this.pick = () => {
+    this.pick = (event) => {
       if (this.picking) { return this.picking = false; }
 
       this.pickingMinute = false;
       this.pickingHour = true;
       this.picking = true;
+
+      this.keepPicking(event);
     };
 
     this.selectHour = (hour) => {
