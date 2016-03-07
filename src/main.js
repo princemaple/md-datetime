@@ -8,7 +8,7 @@ angular.module('mdDatetime', ['ngMaterial'])
   controller($scope, $window) {
     this.$onInit = () => {
       this.modelCtrl.$render = () => {
-        this.display = moment(this.modelCtrl.$modelValue).format('HH:mm');
+        this.viewValue = moment(this.modelCtrl.$modelValue).format('HH:mm');
 
         let { hour, minute } = this.modelCtrl.$modelValue;
 
@@ -86,6 +86,16 @@ angular.module('mdDatetime', ['ngMaterial'])
       minute.selected = true;
 
       this.picking = false;
+    };
+
+    this.timePattern = /^\d{1,2}:\d{2}$/;
+
+    this.parse = () => {
+      if (!this.viewValue) { return; }
+
+      let [hour, minute] = this.viewValue.split(':');
+
+      this.modelCtrl.$setViewValue({ hour, minute });
     };
   },
   controllerAs: 'T'

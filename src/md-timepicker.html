@@ -9,9 +9,13 @@
   </md-icon>
 </md-button>
 <div class="md-timepicker-widget" ng-click="T.keepPicking($event)">
-  <span class="md-timepicker-display">{{T.display}}</span>
+  <md-input-container>
+    <input class="md-timepicker-input" type="text"
+        ng-model="T.viewValue" ng-pattern="T.timePattern" ng-change="T.parse($event)"></input>
+    </md-button>
+  </md-input-container>
   <div class="md-timepicker-popup" md-whiteframe="2" ng-if="T.picking">
-    <md-toolbar><h1 class="md-timepicker-time">{{T.display}}</h1></md-toolbar>
+    <md-toolbar><h1 class="md-timepicker-time">{{T.viewValue}}</h1></md-toolbar>
     <div class="md-timepicker-ampm" ng-if="T.ampm">
       am/pm
     </div>
