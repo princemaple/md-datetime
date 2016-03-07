@@ -1,16 +1,20 @@
 .md-timepicker-widget {
   position: relative;
-  display: inline;
+  display: inline-block;
   outline: none;
-}
 
-.md-timepicker-display {
-  vertical-align: middle;
+  .md-errors-spacer {
+    display: none;
+  }
+
+  .md-datepicker-triangle-button {
+    top: 6px;
+  }
 }
 
 .md-timepicker-popup {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   background: #eee;
   width: 240px;
