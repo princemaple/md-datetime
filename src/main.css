@@ -1,3 +1,7 @@
+.md-datetime-picker-reset {
+  vertical-align: middle;
+}
+
 .md-timepicker-widget {
   position: relative;
   display: inline-block;

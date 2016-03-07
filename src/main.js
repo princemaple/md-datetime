@@ -123,7 +123,7 @@ angular.module('mdDatetime', ['ngMaterial'])
       this.updateParams();
     };
 
-    this.updateParams = function() {
+    this.updateParams = () => {
       this.params = {
         date: this.datetime.toDate(),
         time: {
@@ -131,6 +131,11 @@ angular.module('mdDatetime', ['ngMaterial'])
           minute: this.datetime.minute()
         }
       };
+    };
+
+    this.reset = () => {
+      this.datetime = moment();
+      this.updateParams();
     };
 
     this.updateParams();
