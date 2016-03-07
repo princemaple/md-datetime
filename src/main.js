@@ -88,7 +88,7 @@ angular.module('mdDatetime', ['ngMaterial'])
       this.picking = false;
     };
 
-    this.timePattern = /^\d{1,2}:\d{2}$/;
+    this.timePattern = /^[0-2]?[0-9]:[0-5][0-9]$/;
 
     this.parse = () => {
       if (!this.viewValue) { return; }
