@@ -52,14 +52,23 @@ angular.module('mdDatetime')
     this.hours = this.outerHours.concat(this.innerHours);
     this.minutes = this.minutes.map(processClockNumber('minute', 80));
 
-    this.pick = (event) => {
+    this.togglePicking = (event) => {
       if (this.picking) { return this.picking = false; }
 
-      this.pickingMinute = false;
-      this.pickingHour = true;
       this.picking = true;
+      this.pickHour();
 
       this.keepPicking(event);
+    };
+
+    this.pickHour = () => {
+      this.pickingMinute = false;
+      this.pickingHour = true;
+    };
+
+    this.pickMinute = () => {
+      this.pickingHour = false;
+      this.pickingMinute = true;
     };
 
     this.selectHour = (hour) => {
@@ -72,8 +81,7 @@ angular.module('mdDatetime')
       this.innerHours.forEach(h => { h.selected = false; });
       hour.selected = true;
 
-      this.pickingHour = false;
-      this.pickingMinute = true;
+      this.pickMinute();
     };
 
     this.selectMinute = (minute) => {
@@ -96,6 +104,11 @@ angular.module('mdDatetime')
       let [hour, minute] = this.viewValue.split(':');
 
       this.modelCtrl.$setViewValue({ hour, minute });
+    };
+
+    this.time = {
+      hour: () => moment(this.modelCtrl.$modelValue).format('HH'),
+      minute: () => moment(this.modelCtrl.$modelValue).format('mm')
     };
   },
   controllerAs: 'T'

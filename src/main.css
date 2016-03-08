@@ -22,6 +22,7 @@
   left: 0;
   background: #eee;
   width: 240px;
+  height: 288px;
   overflow: hidden;
   z-index: 99;
 
@@ -38,17 +39,49 @@
   }
 }
 
+.md-timepicker-time {
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.md-timepicker-time-hour,
+.md-timepicker-time-minute {
+  font-size: 32px;
+  cursor: pointer;
+  outline: none;
+
+  &.selected {
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
 .md-timepicker-clock {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 64px;
   background-color: #ddd;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin: 12px auto;
-}
+  margin: 12px 20px;
 
-.md-timepicker-time {
-  text-align: center;
+  &.ng-leave {
+    transition: all .3s ease-out;
+    z-index: 99;
+  }
+
+  &.ng-leave {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &.ng-leave-active {
+    transform: scale(1.2);
+    opacity: 0;
+  }
 }
 
 .md-timepicker-clock-hour,

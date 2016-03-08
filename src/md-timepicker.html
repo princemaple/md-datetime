@@ -1,5 +1,5 @@
 <md-button class="md-timepicker-button md-icon-button md-ink-ripple" type="button" aria-label="pick time"
-    ng-click="T.pick($event)" ng-class="{ active: T.picking }">
+    ng-click="T.togglePicking($event)" ng-class="{ active: T.picking }">
   <md-icon>
     <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
@@ -10,18 +10,26 @@
 </md-button>
 <div class="md-timepicker-widget" ng-click="T.keepPicking($event)">
   <md-input-container>
-    <input class="md-timepicker-input" type="text"
+    <input class="md-timepicker-input" type="text" aria-label="time input"
         ng-model="T.viewValue" ng-pattern="T.timePattern" ng-change="T.parse($event)"></input>
-    <md-button class="md-datepicker-triangle-button md-icon-button" ng-click="T.pick($event)">
+    <md-button class="md-datepicker-triangle-button md-icon-button" ng-click="T.togglePicking($event)" aria-label="pick time">
       <div class="md-datepicker-expand-triangle"></div>
     </md-button>
   </md-input-container>
   <div class="md-timepicker-popup" md-whiteframe="2" ng-if="T.picking">
-    <md-toolbar><h1 class="md-timepicker-time">{{T.viewValue}}</h1></md-toolbar>
+    <md-toolbar class="md-timepicker-time">
+      <span class="md-timepicker-time-hour" ng-class="{ selected: T.pickingHour }" ng-click="T.pickHour()">
+        {{T.time.hour()}}
+      </span>
+      <span>:</span>
+      <span class="md-timepicker-time-minute" ng-class="{ selected: T.pickingMinute }" ng-click="T.pickMinute()">
+        {{T.time.minute()}}
+      </span>
+    </md-toolbar>
     <div class="md-timepicker-ampm" ng-if="T.ampm">
       am/pm
     </div>
-    <div class="md-timepicker-clock md-timepicker-hours" ng-show="T.pickingHour">
+    <div class="md-timepicker-clock md-timepicker-hours" ng-if="T.pickingHour">
       <div class="md-timepicker-clock-outer-hour md-timepicker-clock-hour" ng-class="{ selected: hour.selected }"
           ng-repeat="hour in T.outerHours" ng-style="hour.style" ng-click="T.selectHour(hour)">
         <span class="md-timepicker-hour-number">{{::hour.viewValue}}</span>
@@ -31,7 +39,7 @@
         <span class="md-timepicker-hour-number">{{::hour.viewValue}}</span>
       </div>
     </div>
-    <div class="md-timepicker-clock md-timepicker-minutes" ng-show="T.pickingMinute">
+    <div class="md-timepicker-clock md-timepicker-minutes" ng-if="T.pickingMinute">
       <div class="md-timepicker-clock-minute" ng-class="{ selected: minute.selected }"
           ng-repeat="minute in T.minutes" ng-style="minute.style" ng-click="T.selectMinute(minute)">
         <span class="md-timepicker-minute-number">{{::minute.viewValue}}</span>
