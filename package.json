@@ -4,6 +4,8 @@
   "description": "Angular material datetime picker",
   "main": "dist/main.js",
   "scripts": {
+    "dev": "webpack --progress -w",
+    "dist": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
