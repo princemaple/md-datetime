@@ -13,7 +13,7 @@ angular.module('mdDatetime')
         let { hour, minute } = this.modelCtrl.$modelValue;
 
         this.hours.forEach(h => { h.selected = h.realValue == hour; });
-        this.minutes.forEach(m => { m.selected = Math.abs(m.realValue - minute) <= 2.5; });
+        this.minutes.forEach((m, index) => { m.selected = (Math.floor(minute / 5) + 11) % 12 == index; });
       };
 
       angular.element($window).on('click', () => {
