@@ -1,6 +1,6 @@
 {
   "name": "md-datetime",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Angular material datetime picker",
   "main": "dist/main.js",
   "scripts": {
