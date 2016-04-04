@@ -1,9 +1,16 @@
 angular.module('mdDatetime')
 .component('mdDatetime', {
-  bindings: { at: '=' },
+  require: {
+    modelCtrl: 'ngModel'
+  },
   template: require('html!./md-datetime.html'),
   controller() {
-    this.datetime = moment(this.at);
+    this.$onInit = () => {
+      this.modelCtrl.$render = () => {
+        this.datetime = moment(this.modelCtrl.$modelValue);
+        this.updateParams();
+      };
+    };
 
     this.updateDate = () => {
       let newDate = moment(this.params.date);
@@ -30,14 +37,14 @@ angular.module('mdDatetime')
           minute: this.datetime.minute()
         }
       };
+
+      this.modelCtrl.$setViewValue(this.datetime.toISOString());
     };
 
     this.reset = () => {
       this.datetime = moment();
       this.updateParams();
     };
-
-    this.updateParams();
   },
   controllerAs: 'DT'
 });

@@ -11,7 +11,7 @@
 <div class="md-timepicker-widget" ng-click="T.keepPicking($event)">
   <md-input-container>
     <input class="md-timepicker-input" type="text" aria-label="time input"
-        ng-model="T.viewValue" ng-pattern="T.timePattern" ng-change="T.parse($event)"></input>
+        ng-model="T.viewValue" ng-pattern="T.timePattern" ng-change="T.parse()"></input>
     <md-button class="md-datepicker-triangle-button md-icon-button" ng-click="T.togglePicking($event)" aria-label="pick time">
       <div class="md-datepicker-expand-triangle"></div>
     </md-button>

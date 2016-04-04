@@ -10,14 +10,16 @@
     .wip { font-size: 12px; }
   </style>
 </head>
-<body ng-app="demo">
+<body ng-app="demo" ng-controller="demoCtrl">
   <md-toolbar>
     <h1 class="lib-name">Angular Material Datetime Picker <small class="wip">work in progress</small></h1>
   </md-toolbar>
   <form>
-    <md-datetime></md-datetime>
+    <md-datetime ng-model="dt1" ng-change="handleChange('dt1')"></md-datetime>
+    <div>dt1 value: {{dt1 | date: 'yyyy-MM-ddTHH:mmZ'}}</div>
     <hr>
-    <md-datetime at="'2014-02-28'"></md-datetime>
+    <md-datetime ng-model="dt2" ng-change="handleChange('dt2')"></md-datetime>
+    <div>dt2 value: {{dt2 | date: 'yyyy-MM-ddTHH:mmZ'}}</div>
   </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
@@ -26,7 +28,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.js"></script>
   <script src="./dist/main.js"></script>
   <script>
-    angular.module('demo', ['ngAnimate', 'ngMaterial', 'mdDatetime']);
+    angular.module('demo', ['ngAnimate', 'ngMaterial', 'mdDatetime'])
+    .controller('demoCtrl', function($scope) {
+      $scope.dt1 = new Date();
+      $scope.dt2 = new Date('1970-01-01');
+      $scope.handleChange = function(which) {
+        console.log(which + ' value changed');
+      };
+    });
   </script>
 
   <style>#forkongithub a{background:#6D6D6D;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#9d9d9d;color:#333;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:60px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}</style><span id="forkongithub"><a href="https://github.com/princemaple/md-datetime">Fork me on GitHub</a></span>
