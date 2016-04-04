@@ -1,4 +1,7 @@
 # md-datetime
+
+[![npm version](https://badge.fury.io/js/md-datetime.svg)](https://badge.fury.io/js/md-datetime)
+
 Angular material datetime picker
 
 see [live demo](https://rawgit.com/princemaple/md-datetime/master/demo.html)
