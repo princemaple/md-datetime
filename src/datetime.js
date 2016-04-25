@@ -4,7 +4,7 @@ angular.module('mdDatetime')
     modelCtrl: 'ngModel'
   },
   template: require('html!./md-datetime.html'),
-  controller() {
+  controller($attrs) {
     this.$onInit = () => {
       this.modelCtrl.$render = () => {
         this.datetime = moment(this.modelCtrl.$modelValue);
@@ -40,6 +40,8 @@ angular.module('mdDatetime')
 
       this.modelCtrl.$setViewValue(this.datetime.toISOString());
     };
+
+    this.canReset = !('noReset' in $attrs);
 
     this.reset = () => {
       this.datetime = moment();
