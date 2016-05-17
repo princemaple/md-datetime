@@ -8,7 +8,7 @@ angular.module('mdDatetime')
     this.$onInit = () => {
       this.modelCtrl.$render = () => {
         this.datetime = moment(this.modelCtrl.$modelValue);
-        this.updateParams();
+        this.updateParams(true);
       };
     };
 
@@ -29,7 +29,7 @@ angular.module('mdDatetime')
       this.updateParams();
     };
 
-    this.updateParams = () => {
+    this.updateParams = (init) => {
       this.params = {
         date: this.datetime.toDate(),
         time: {
@@ -38,6 +38,7 @@ angular.module('mdDatetime')
         }
       };
 
+      if (init) { return; }
       this.modelCtrl.$setViewValue(this.datetime.toISOString());
     };
 
