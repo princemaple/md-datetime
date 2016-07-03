@@ -43,7 +43,7 @@
     "postcss-import": "^8.0.2",
     "postcss-loader": "^0.9.1",
     "postcss-nested": "^1.0.0",
-    "postcss-simple-vars": "^2.0.0",
+    "postcss-simple-vars": "^3.0.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.13.1"
   }
