@@ -27,7 +27,7 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-material": "1.0.9",
-    "moment": "^2.11.2"
+    "moment": "^2.14.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
