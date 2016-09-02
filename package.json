@@ -45,6 +45,6 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "style-loader": "^0.13.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.2"
   }
 }
