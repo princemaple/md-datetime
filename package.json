@@ -41,7 +41,7 @@
     "html-loader": "^0.4.4",
     "ng-annotate-loader": "^0.2.0",
     "postcss-import": "^9.1.0",
-    "postcss-loader": "^1.2.1",
+    "postcss-loader": "^1.2.2",
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "style-loader": "^0.13.0",
