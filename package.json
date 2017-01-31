@@ -26,7 +26,7 @@
   "homepage": "https://github.com/princemaple/md-datetime#readme",
   "dependencies": {
     "angular": "^1.5.9",
-    "angular-material": "1.1.2",
+    "angular-material": "^1.1.2",
     "moment": "^2.17.1"
   },
   "devDependencies": {
