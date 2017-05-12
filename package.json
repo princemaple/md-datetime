@@ -40,7 +40,7 @@
     "extract-text-webpack-plugin": "^2.0.0",
     "html-loader": "^0.4.5",
     "ng-annotate-loader": "^0.6.0",
-    "postcss-import": "^9.1.0",
+    "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.3",
     "postcss-nested": "^2.0.1",
     "postcss-simple-vars": "^4.0.0",
