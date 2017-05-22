@@ -1,5 +1,7 @@
 # md-datetime
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/princemaple/md-datetime.svg)](https://greenkeeper.io/)
+
 [![npm version](https://badge.fury.io/js/md-datetime.svg)](https://badge.fury.io/js/md-datetime)
 
 Angular material datetime picker
